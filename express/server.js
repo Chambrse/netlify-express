@@ -16,7 +16,7 @@ router.post('/', (req, res) => {
   console.log(req.headers);
   console.log(req.body);
 
-  res.status(200).send({ test: "success!" });
+  res.status(200).send({ challenge: req.body.challenge });
 });
 
 
