@@ -12,6 +12,12 @@ router.get('/', (req, res) => {
   res.status(200).send({ test: "success!" });
 });
 
+router.post('/', (req, res) => {
+  console.log(req.headers);
+  console.log(req.body);
+
+  res.status(200).send({ test: "success!" });
+});
 
 
 router.get('/another', (req, res) => res.json({ route: req.originalUrl }));
