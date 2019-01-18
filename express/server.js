@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const router = express.Router();
 router.get('/', (req, res) => {
   console.log(req.headers);
+  console.log(req.body);
 
   res.status(200).send({ test: "success!" });
 });
