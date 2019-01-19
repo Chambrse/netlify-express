@@ -5,6 +5,7 @@ const app = express();
 const bodyParser = require('body-parser');
 
 const router = express.Router();
+let testNumber = 42;
 router.get('/', (req, res) => {
   console.log(req.headers);
   console.log(req.body);
@@ -15,6 +16,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   console.log(req.headers);
   console.log(JSON.stringify(req.body, null, 2));
+  console.log("thise is a global variable, testNumber", testNumber);
 
   res.status(200).send({ challenge: req.body.challenge });
 });
