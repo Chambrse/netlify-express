@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   console.log(req.headers);
-  console.log(req.body);
+  console.log(JSON.stringify(req.body, null, 2));
 
   res.status(200).send({ challenge: req.body.challenge });
 });
