@@ -26,7 +26,7 @@ router.post('/loadCSV', (req, res) => {
   console.log(JSON.stringify(req.body, null, 2));
   console.log("thise is a global variable, testNumber", testNumber);
 
-  res.status(200).send({ text: "csv data received!" });
+  res.status(200).send({ "text": "csv data received!" });
 });
 
 
