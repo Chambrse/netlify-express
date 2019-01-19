@@ -33,7 +33,7 @@ router.post('/', (req, res) => {
 
 router.post('/loadCSV', (req, res) => {
   console.log(req.headers);
-  console.log(JSON.stringify(req, null, 2));
+  console.log(req);
   console.log(req.body);
   console.log(req.text);
   console.log("thise is a global variable, testNumber", testNumber);
