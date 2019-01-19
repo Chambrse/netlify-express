@@ -44,6 +44,14 @@ router.post('/loadCSV', (req, res) => {
   res.status(200).send({ "text": "csv data received!" });
 });
 
+router.post('/timer', (req, res) => {
+  console.log(req.body);
+  res.status(200).send({ "text": "Time Remaining: 0:00" });
+  let timer = setInterval(function() {
+
+  }, 1000)
+})
+
 
 module.exports = app;
 module.exports.handler = serverless(app);
