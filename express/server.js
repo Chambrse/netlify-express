@@ -3,11 +3,10 @@ const express = require('express');
 const serverless = require('serverless-http');
 const app = express();
 const bodyParser = require('body-parser');
+const request = require('request');
 
 const router = express.Router();
 let testNumber = 42;
-
-
 
 router.get('/another', (req, res) => res.json({ route: req.originalUrl }));
 router.post('/', (req, res) => res.json({ postBody: req.body }));
@@ -15,7 +14,7 @@ router.post('/', (req, res) => res.json({ postBody: req.body }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
-})); 
+}));
 app.use('/.netlify/functions/server', router);  // path must route to lambda
 // app.use('/', router);  // path must route to lambda
 
@@ -46,10 +45,44 @@ router.post('/loadCSV', (req, res) => {
 
 router.post('/timer', (req, res) => {
   console.log(req.body);
-  res.status(200).send({ "text": "Time Remaining: 0:00" });
-  let timer = setInterval(function() {
+  res.status(200).send({ "text": "Timer started." });
+  // let timer = setInterval(function() {
 
-  }, 1000)
+  // }, 1000)
+})
+
+router.post('/test', (req, res) => {
+  console.log(req.body);
+  res.status(200).send({ "text": "Timer started." });
+
+  setTimeout(function () {
+
+    let body = JSON.stringify({
+      'channel': req.body.channel_id,
+      'text': 'this is what the message will update to',
+      'as_user': 'false',
+      'username': 'Trilogy_Timer'
+    });
+
+    var options = {
+      url: 'https://slack.com/api/chat.postMessage',
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer xoxp-527153331493-528371214310-529152087623-3347006ddb89c48424746a710e9ea4fb'
+      },
+      body: body
+    };
+
+    request.post(options, function (error, response, body) {
+      console.log('error:', error); // Print the error if one occurred
+      console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+      console.log('body:', body); // Print the HTML for the Google homepage.
+    });
+  }, 5000);
+  // let timer = setInterval(function() {
+
+  // }, 1000)
 })
 
 
