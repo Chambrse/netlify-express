@@ -81,7 +81,7 @@ router.post('/test', (req, res) => {
       console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
       console.log('body:', body); // Print the HTML for the Google homepage.
     });
-  }, 5000);
+  }, 5);
 });
 
 
