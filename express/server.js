@@ -1,4 +1,5 @@
 'use strict';
+require('dotenv').config()
 const express = require('express');
 const serverless = require('serverless-http');
 const app = express();
@@ -70,7 +71,7 @@ router.post('/test', (req, res) => {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer xoxp-527153331493-528371214310-528189649410-f521bfaf3bb06bfc0206e6e6e7b7fd4e'
+        'Authorization': 'Bearer ' + process.env.SLACK_TOKEN
       },
       body: body
     };
