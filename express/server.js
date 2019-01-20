@@ -53,6 +53,7 @@ router.post('/timer', (req, res) => {
 })
 
 router.post('/test', (req, res) => {
+  setInterval(function() {console.log("interval function")}, 1000);
   console.log(req.body);
   res.status(200).send({ "text": "Timer started." });
   console.log("code gets past hte .send");
@@ -81,7 +82,7 @@ router.post('/test', (req, res) => {
       console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
       console.log('body:', body); // Print the HTML for the Google homepage.
     });
-  }, 5);
+  }, 5000);
 });
 
 
