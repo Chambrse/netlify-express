@@ -57,7 +57,7 @@ router.post('/test', (req, res) => {
   res.status(200).send({ "text": "Timer started." });
   console.log("code gets past hte .send");
 
-  let test = setTimeout(function () {
+  setTimeout(function () {
     console.log('the timeout is happening');
     let body = JSON.stringify({
       'channel': 'CFJAX6E9L',
@@ -82,9 +82,6 @@ router.post('/test', (req, res) => {
       console.log('body:', body); // Print the HTML for the Google homepage.
     });
   }, 5000);
-  // let timer = setInterval(function() {
-
-  // }, 1000)
 });
 
 
