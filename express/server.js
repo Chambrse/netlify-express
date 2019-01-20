@@ -56,7 +56,7 @@ router.post('/test', (req, res) => {
   res.status(200).send({ "text": "Timer started." });
   console.log("code gets past hte .send");
 
-  setTimeout(function () {
+  let test = setTimeout(function () {
     console.log('the timeout is happening');
     let body = JSON.stringify({
       'channel': req.body.channel_id,
