@@ -59,7 +59,7 @@ router.post('/test', (req, res) => {
   let test = setTimeout(function () {
     console.log('the timeout is happening');
     let body = JSON.stringify({
-      'channel': req.body.channel_id,
+      'channel': 'CFJAX6E9L',
       'text': 'this is what the message will update to',
       'as_user': 'false',
       'username': 'Trilogy_Timer'
@@ -70,7 +70,7 @@ router.post('/test', (req, res) => {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer xoxp-527153331493-528371214310-529152087623-3347006ddb89c48424746a710e9ea4fb'
+        'Authorization': 'Bearer xoxp-527153331493-528371214310-528189649410-f521bfaf3bb06bfc0206e6e6e7b7fd4e'
       },
       body: body
     };
@@ -84,7 +84,7 @@ router.post('/test', (req, res) => {
   // let timer = setInterval(function() {
 
   // }, 1000)
-})
+});
 
 
 module.exports = app;
