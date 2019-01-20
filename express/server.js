@@ -54,9 +54,10 @@ router.post('/timer', (req, res) => {
 router.post('/test', (req, res) => {
   console.log(req.body);
   res.status(200).send({ "text": "Timer started." });
+  console.log("code gets past hte .send");
 
   setTimeout(function () {
-
+    console.log('the timeout is happening');
     let body = JSON.stringify({
       'channel': req.body.channel_id,
       'text': 'this is what the message will update to',
